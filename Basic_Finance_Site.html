@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Money.com</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <h1>Buy in Ripple now?</h1>
+    <p>
+      Let's see some crypto headers:
+    </p>
+    <p>
+      <a href="https://coinmarketcap.com/currencies/ripple/">Ripple</a>
+    </p>
+    <p>
+      <a href="https://coinmarketcap.com/currencies/ethereum/">Ethereum</a>
+    </p>
+    
+    <p>
+      Let's say you want to open a high-interest yielding savings account
+      How much would you make over your lifetime compunding interest on your money?
+    </p>
+    
+    
+    <input type="text" id="userInput" placeholder="Enter Savings Balance">
+    <p> </p>
+    <input type="text" id="years" placeholder="Enter Years in Savings">
+    <p> </p>
+    <button onclick="callBoth()">Submit</button>
+
+    <!-- add this line for function to write into -->
+    <p>
+      At the sample interest rate of 2.00% APR, your savings account compounds to the amount of:
+    </p>
+    <p id="demo">AMNT</p>   
+    <script>
+      function getBalance()
+      {
+          var Savings_Num = document.getElementById("userInput").value;
+          var AmplifiedNum = Savings_Num * 1.02;
+          document.getElementById("demo").innerHTML = AmplifiedNum;
+      }
+      function callBoth()
+      {
+        var base = document.getElementById("userInput").value;
+        var yrs = document.getElementById("years").value;
+        var apr = 0.02;
+        var ans = base;
+        var multiplier = 1+apr;
+        for(i=0; i<yrs; i++)
+        {
+          ans = (ans*multiplier);
+        }
+        document.getElementById("demo").innerHTML = "$"+ans;
+      }
+  </script>
+  </body>
+</html>
